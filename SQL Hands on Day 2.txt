@@ -1,0 +1,1203 @@
+Microsoft Windows [Version 10.0.16299.64]
+(c) 2017 Microsoft Corporation. All rights reserved.
+
+C:\Users\lab365>sqlplus
+
+SQL*Plus: Release 11.2.0.1.0 Production on Wed Dec 25 20:06:49 2019
+
+Copyright (c) 1982, 2010, Oracle.  All rights reserved.
+
+Enter user-name: scott
+Enter password:
+
+Connected to:
+Oracle Database 11g Enterprise Edition Release 11.2.0.1.0 - 64bit Production
+With the Partitioning, OLAP, Data Mining and Real Application Testing options
+
+SQL> desc test;
+ERROR:
+ORA-04043: object test does not exist
+
+
+SQL> create table emp1 as select * from emp;
+
+Table created.
+
+SQL> desc emp1;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ EMPNO                                              NUMBER(4)
+ ENAME                                              VARCHAR2(10)
+ JOB                                                VARCHAR2(9)
+ MGR                                                NUMBER(4)
+ HIREDATE                                           DATE
+ SAL                                                NUMBER(7,2)
+ COMM                                               NUMBER(7,2)
+ DEPTNO                                             NUMBER(2)
+
+SQL> select * from emp1;
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM
+---------- ---------- --------- ---------- --------- ---------- ----------
+    DEPTNO
+----------
+      7369 SMITH      CLERK           7902 17-DEC-80        800
+        20
+
+      7499 ALLEN      SALESMAN        7698 20-FEB-81       1600        300
+        30
+
+      7521 WARD       SALESMAN        7698 22-FEB-81       1250        500
+        30
+
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM
+---------- ---------- --------- ---------- --------- ---------- ----------
+    DEPTNO
+----------
+      7566 JONES      MANAGER         7839 02-APR-81       2975
+        20
+
+      7654 MARTIN     SALESMAN        7698 28-SEP-81       1250       1400
+        30
+
+      7698 BLAKE      MANAGER         7839 01-MAY-81       2850
+        30
+
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM
+---------- ---------- --------- ---------- --------- ---------- ----------
+    DEPTNO
+----------
+      7782 CLARK      MANAGER         7839 09-JUN-81       2450
+        10
+
+      7788 SCOTT      ANALYST         7566 19-APR-87       3000
+        20
+
+      7839 KING       PRESIDENT            17-NOV-81       5000
+        10
+
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM
+---------- ---------- --------- ---------- --------- ---------- ----------
+    DEPTNO
+----------
+      7844 TURNER     SALESMAN        7698 08-SEP-81       1500          0
+        30
+
+      7876 ADAMS      CLERK           7788 23-MAY-87       1100
+        20
+
+      7900 JAMES      CLERK           7698 03-DEC-81        950
+        30
+
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM
+---------- ---------- --------- ---------- --------- ---------- ----------
+    DEPTNO
+----------
+      7902 FORD       ANALYST         7566 03-DEC-81       3000
+        20
+
+      7934 MILLER     CLERK           7782 23-JAN-82       1300
+        10
+
+
+14 rows selected.
+
+SQL> select * from em
+  2
+SQL>
+SQL>
+SQL>
+SQL>
+SQL>
+SQL>
+SQL>
+SQL>
+SQL>
+SQL>
+SQL>
+SQL>
+SQL>
+SQL>
+SQL>
+SQL>
+SQL>
+SQL>
+SQL>
+SQL>
+SQL>
+SQL>
+SQL>
+SQL>
+SQL>
+SQL>
+SQL>
+SQL>
+SQL>
+SQL>
+SQL>
+SQL>
+SQL>
+SQL>
+SQL>
+SQL>
+SQL>
+SQL>
+SQL>
+SQL>
+SQL>
+SQL>
+SQL>
+SQL>
+SQL>
+SQL>
+SQL>
+SQL>
+SQL>
+SQL>
+SQL>
+SQL>
+SQL>
+SQL>
+SQL>
+SQL>
+SQL>
+SQL>
+SQL>
+SQL>
+SQL>
+SQL>
+SQL>
+SQL>
+SQL>
+SQL>
+SQL>
+SQL>
+SQL>
+SQL>
+SQL>
+SQL>
+SQL>
+SQL>
+SQL>
+SQL>
+SQL>
+SQL>
+SQL>
+SQL>
+SQL>
+SQL>
+SQL>
+SQL>
+SQL>
+SQL>
+SQL>
+SQL>
+SQL>
+SQL>
+SQL>
+SQL>
+SQL>
+SQL>
+SQL>
+SQL>
+SQL>
+SQL>
+SQL>
+SQL>
+SQL>
+SQL>
+SQL>
+SQL>
+SQL>
+SQL>
+SQL>
+SQL>
+SQL>
+SQL>
+SQL>
+SQL>
+SQL>
+SQL>
+SQL>
+SQL>
+SQL>
+SQL>
+SQL>
+SQL>
+SQL>
+SQL>
+SQL>
+SQL>
+SQL>
+SQL>
+SQL>
+SQL>
+SQL>
+SQL>
+SQL>
+SQL>
+SQL>
+SQL>
+SQL>
+SQL>
+SQL>
+SQL>
+SQL>
+SQL>
+SQL>
+SQL>
+SQL>
+SQL>
+SQL>
+SQL>
+SQL>
+SQL>
+SQL>
+SQL>
+SQL>
+SQL>
+SQL>
+SQL>
+SQL>
+SQL>
+SQL>
+SQL>
+SQL>
+SQL>
+SQL> create table emp1(regno,name,job,doj) as select empno,ename,job,hiredate from emp;
+create table emp1(regno,name,job,doj) as select empno,ename,job,hiredate from emp
+             *
+ERROR at line 1:
+ORA-00955: name is already used by an existing object
+
+
+SQL> drop table emp1;
+
+Table dropped.
+
+SQL> create table emp1(regno,name,job,doj) as select empno,ename,job,hiredate from emp;
+
+Table created.
+
+SQL> truncate table emp1;
+
+Table truncated.
+
+SQL> select * from emp1;
+
+no rows selected
+
+SQL> ed
+Wrote file afiedt.buf
+
+  1* insert into emp1(regno,name,job,doj) values(1,'sam','sales',sysdate)
+SQL> /
+
+1 row created.
+
+SQL> select * from emp1;
+
+     REGNO NAME       JOB       DOJ
+---------- ---------- --------- ---------
+         1 sam        sales     25-DEC-19
+
+SQL> insert into emp1 select empno,ename,job,hiredate from emp where deptno=10;
+
+3 rows created.
+
+SQL> select * from emp1;
+
+     REGNO NAME       JOB       DOJ
+---------- ---------- --------- ---------
+         1 sam        sales     25-DEC-19
+      7782 CLARK      MANAGER   09-JUN-81
+      7839 KING       PRESIDENT 17-NOV-81
+      7934 MILLER     CLERK     23-JAN-82
+
+SQL> insert into emp1 values(&regno,'&ename','&job','&hiredate');
+Enter value for regno: 1
+Enter value for ename: saw
+Enter value for job: mgr
+Enter value for hiredate: 26-dec-19
+old   1: insert into emp1 values(&regno,'&ename','&job','&hiredate')
+new   1: insert into emp1 values(1,'saw','mgr','26-dec-19')
+
+1 row created.
+
+SQL> select * from emp1;
+
+     REGNO NAME       JOB       DOJ
+---------- ---------- --------- ---------
+         1 sam        sales     25-DEC-19
+      7782 CLARK      MANAGER   09-JUN-81
+      7839 KING       PRESIDENT 17-NOV-81
+      7934 MILLER     CLERK     23-JAN-82
+         1 saw        mgr       26-DEC-19
+
+SQL> update emp1 set name='mgr',doj=sysdate where regno=1;
+
+2 rows updated.
+
+SQL> select * from emp1;
+
+     REGNO NAME       JOB       DOJ
+---------- ---------- --------- ---------
+         1 mgr        sales     25-DEC-19
+      7782 CLARK      MANAGER   09-JUN-81
+      7839 KING       PRESIDENT 17-NOV-81
+      7934 MILLER     CLERK     23-JAN-82
+         1 mgr        mgr       25-DEC-19
+
+SQL>
+SQL> delete from emp1 where regno=1;
+
+2 rows deleted.
+
+SQL> create table emp2 as select * from emp;
+
+Table created.
+
+SQL> select * from emp2;
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM
+---------- ---------- --------- ---------- --------- ---------- ----------
+    DEPTNO
+----------
+      7369 SMITH      CLERK           7902 17-DEC-80        800
+        20
+
+      7499 ALLEN      SALESMAN        7698 20-FEB-81       1600        300
+        30
+
+      7521 WARD       SALESMAN        7698 22-FEB-81       1250        500
+        30
+
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM
+---------- ---------- --------- ---------- --------- ---------- ----------
+    DEPTNO
+----------
+      7566 JONES      MANAGER         7839 02-APR-81       2975
+        20
+
+      7654 MARTIN     SALESMAN        7698 28-SEP-81       1250       1400
+        30
+
+      7698 BLAKE      MANAGER         7839 01-MAY-81       2850
+        30
+
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM
+---------- ---------- --------- ---------- --------- ---------- ----------
+    DEPTNO
+----------
+      7782 CLARK      MANAGER         7839 09-JUN-81       2450
+        10
+
+      7788 SCOTT      ANALYST         7566 19-APR-87       3000
+        20
+
+      7839 KING       PRESIDENT            17-NOV-81       5000
+        10
+
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM
+---------- ---------- --------- ---------- --------- ---------- ----------
+    DEPTNO
+----------
+      7844 TURNER     SALESMAN        7698 08-SEP-81       1500          0
+        30
+
+      7876 ADAMS      CLERK           7788 23-MAY-87       1100
+        20
+
+      7900 JAMES      CLERK           7698 03-DEC-81        950
+        30
+
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM
+---------- ---------- --------- ---------- --------- ---------- ----------
+    DEPTNO
+----------
+      7902 FORD       ANALYST         7566 03-DEC-81       3000
+        20
+
+      7934 MILLER     CLERK           7782 23-JAN-82       1300
+        10
+
+
+14 rows selected.
+
+SQL> set linesize 120
+SQL> set pagesize 120
+SQL> /
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO
+---------- ---------- --------- ---------- --------- ---------- ---------- ----------
+      7369 SMITH      CLERK           7902 17-DEC-80        800                    20
+      7499 ALLEN      SALESMAN        7698 20-FEB-81       1600        300         30
+      7521 WARD       SALESMAN        7698 22-FEB-81       1250        500         30
+      7566 JONES      MANAGER         7839 02-APR-81       2975                    20
+      7654 MARTIN     SALESMAN        7698 28-SEP-81       1250       1400         30
+      7698 BLAKE      MANAGER         7839 01-MAY-81       2850                    30
+      7782 CLARK      MANAGER         7839 09-JUN-81       2450                    10
+      7788 SCOTT      ANALYST         7566 19-APR-87       3000                    20
+      7839 KING       PRESIDENT            17-NOV-81       5000                    10
+      7844 TURNER     SALESMAN        7698 08-SEP-81       1500          0         30
+      7876 ADAMS      CLERK           7788 23-MAY-87       1100                    20
+      7900 JAMES      CLERK           7698 03-DEC-81        950                    30
+      7902 FORD       ANALYST         7566 03-DEC-81       3000                    20
+      7934 MILLER     CLERK           7782 23-JAN-82       1300                    10
+
+14 rows selected.
+
+SQL> insert into emp2(empno,ename,job) values(1,'sss','sales');
+
+1 row created.
+
+SQL> select * from emp2;
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO
+---------- ---------- --------- ---------- --------- ---------- ---------- ----------
+      7369 SMITH      CLERK           7902 17-DEC-80        800                    20
+      7499 ALLEN      SALESMAN        7698 20-FEB-81       1600        300         30
+      7521 WARD       SALESMAN        7698 22-FEB-81       1250        500         30
+      7566 JONES      MANAGER         7839 02-APR-81       2975                    20
+      7654 MARTIN     SALESMAN        7698 28-SEP-81       1250       1400         30
+      7698 BLAKE      MANAGER         7839 01-MAY-81       2850                    30
+      7782 CLARK      MANAGER         7839 09-JUN-81       2450                    10
+      7788 SCOTT      ANALYST         7566 19-APR-87       3000                    20
+      7839 KING       PRESIDENT            17-NOV-81       5000                    10
+      7844 TURNER     SALESMAN        7698 08-SEP-81       1500          0         30
+      7876 ADAMS      CLERK           7788 23-MAY-87       1100                    20
+      7900 JAMES      CLERK           7698 03-DEC-81        950                    30
+      7902 FORD       ANALYST         7566 03-DEC-81       3000                    20
+      7934 MILLER     CLERK           7782 23-JAN-82       1300                    10
+         1 sss        sales
+
+15 rows selected.
+
+SQL> insert into emp2(empno,ename,job) values(2,'sas','sales') savepoint a;
+insert into emp2(empno,ename,job) values(2,'sas','sales') savepoint a
+                                                          *
+ERROR at line 1:
+ORA-00933: SQL command not properly ended
+
+
+SQL> insert into emp2(empno,ename,job) values(2,'sas','sales');
+
+1 row created.
+
+SQL> savepoint a;
+
+Savepoint created.
+
+SQL> update emp2 set empno=23,ename='shy',job='pm';
+
+16 rows updated.
+
+SQL> rollback
+  2
+SQL> select * from emp2;
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO
+---------- ---------- --------- ---------- --------- ---------- ---------- ----------
+        23 shy        pm              7902 17-DEC-80        800                    20
+        23 shy        pm              7698 20-FEB-81       1600        300         30
+        23 shy        pm              7698 22-FEB-81       1250        500         30
+        23 shy        pm              7839 02-APR-81       2975                    20
+        23 shy        pm              7698 28-SEP-81       1250       1400         30
+        23 shy        pm              7839 01-MAY-81       2850                    30
+        23 shy        pm              7839 09-JUN-81       2450                    10
+        23 shy        pm              7566 19-APR-87       3000                    20
+        23 shy        pm                   17-NOV-81       5000                    10
+        23 shy        pm              7698 08-SEP-81       1500          0         30
+        23 shy        pm              7788 23-MAY-87       1100                    20
+        23 shy        pm              7698 03-DEC-81        950                    30
+        23 shy        pm              7566 03-DEC-81       3000                    20
+        23 shy        pm              7782 23-JAN-82       1300                    10
+        23 shy        pm
+        23 shy        pm
+
+16 rows selected.
+
+SQL> rollback to a;
+
+Rollback complete.
+
+SQL> select * from emp2;
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO
+---------- ---------- --------- ---------- --------- ---------- ---------- ----------
+      7369 SMITH      CLERK           7902 17-DEC-80        800                    20
+      7499 ALLEN      SALESMAN        7698 20-FEB-81       1600        300         30
+      7521 WARD       SALESMAN        7698 22-FEB-81       1250        500         30
+      7566 JONES      MANAGER         7839 02-APR-81       2975                    20
+      7654 MARTIN     SALESMAN        7698 28-SEP-81       1250       1400         30
+      7698 BLAKE      MANAGER         7839 01-MAY-81       2850                    30
+      7782 CLARK      MANAGER         7839 09-JUN-81       2450                    10
+      7788 SCOTT      ANALYST         7566 19-APR-87       3000                    20
+      7839 KING       PRESIDENT            17-NOV-81       5000                    10
+      7844 TURNER     SALESMAN        7698 08-SEP-81       1500          0         30
+      7876 ADAMS      CLERK           7788 23-MAY-87       1100                    20
+      7900 JAMES      CLERK           7698 03-DEC-81        950                    30
+      7902 FORD       ANALYST         7566 03-DEC-81       3000                    20
+      7934 MILLER     CLERK           7782 23-JAN-82       1300                    10
+         1 sss        sales
+         2 sas        sales
+
+16 rows selected.
+
+SQL>
+SQL>
+SQL>  create table t1(name varchar2(9),regno number(10),dob date);
+
+Table created.
+
+SQL> desc t1;
+ Name                                                              Null?    Type
+ ----------------------------------------------------------------- -------- --------------------------------------------
+ NAME                                                                       VARCHAR2(9)
+ REGNO                                                                      NUMBER(10)
+ DOB                                                                        DATE
+
+SQL> alter table t1 modify regno varchar2(10);
+
+Table altered.
+
+SQL> desc t1;
+ Name                                                              Null?    Type
+ ----------------------------------------------------------------- -------- --------------------------------------------
+ NAME                                                                       VARCHAR2(9)
+ REGNO                                                                      VARCHAR2(10)
+ DOB                                                                        DATE
+
+SQL> alter table t1 rename column regno to empno;
+
+Table altered.
+
+SQL> desc t1;
+ Name                                                              Null?    Type
+ ----------------------------------------------------------------- -------- --------------------------------------------
+ NAME                                                                       VARCHAR2(9)
+ EMPNO                                                                      VARCHAR2(10)
+ DOB                                                                        DATE
+
+SQL>
+SQL> drop table t1;
+
+Table dropped.
+
+SQL> desc t1;
+ERROR:
+ORA-04043: object t1 does not exist
+
+
+SQL> flashback table t1 to before drop;
+
+Flashback complete.
+
+SQL> desc t1;
+ Name                                                              Null?    Type
+ ----------------------------------------------------------------- -------- --------------------------------------------
+ NAME                                                                       VARCHAR2(9)
+ EMPNO                                                                      VARCHAR2(10)
+ DOB                                                                        DATE
+
+SQL> truncate table  t1;
+
+Table truncated.
+
+SQL> desc t1;
+ Name                                                              Null?    Type
+ ----------------------------------------------------------------- -------- --------------------------------------------
+ NAME                                                                       VARCHAR2(9)
+ EMPNO                                                                      VARCHAR2(10)
+ DOB                                                                        DATE
+
+SQL> rename t1 to tname;
+
+Table renamed.
+
+SQL> desc t1;
+ERROR:
+ORA-04043: object t1 does not exist
+
+
+SQL> desc tname;
+ Name                                                              Null?    Type
+ ----------------------------------------------------------------- -------- --------------------------------------------
+ NAME                                                                       VARCHAR2(9)
+ EMPNO                                                                      VARCHAR2(10)
+ DOB                                                                        DATE
+
+SQL> create table u1(regno number unique,name varchar2(9));
+
+Table created.
+
+SQL> desc u1;
+ Name                                                              Null?    Type
+ ----------------------------------------------------------------- -------- --------------------------------------------
+ REGNO                                                                      NUMBER
+ NAME                                                                       VARCHAR2(9)
+
+SQL> insert into u1 values(&regno,'&name');
+Enter value for regno: 1
+Enter value for name: aa
+old   1: insert into u1 values(&regno,'&name')
+new   1: insert into u1 values(1,'aa')
+
+1 row created.
+
+SQL>  alter table u1 modify name not null;
+
+Table altered.
+
+SQL> desc u1;
+ Name                                                              Null?    Type
+ ----------------------------------------------------------------- -------- --------------------------------------------
+ REGNO                                                                      NUMBER
+ NAME                                                              NOT NULL VARCHAR2(9)
+
+SQL>
+SQL> create table ch(sal number check(sal>200));
+
+Table created.
+
+SQL> insert into ch values(&sal
+  2
+SQL> insert into ch values(&sal);
+Enter value for sal: 20
+old   1: insert into ch values(&sal)
+new   1: insert into ch values(20)
+insert into ch values(20)
+*
+ERROR at line 1:
+ORA-02290: check constraint (SCOTT.SYS_C0011105) violated
+
+
+SQL> insert into ch values(&sal);
+Enter value for sal: 201;
+old   1: insert into ch values(&sal)
+new   1: insert into ch values(201;)
+insert into ch values(201;)
+                         *
+ERROR at line 1:
+ORA-00911: invalid character
+
+
+SQL> insert into ch values(&sal);
+Enter value for sal: 201
+old   1: insert into ch values(&sal)
+new   1: insert into ch values(201)
+
+1 row created.
+
+SQL> insert into u1 values(default);
+insert into u1 values(default)
+            *
+ERROR at line 1:
+ORA-00947: not enough values
+
+
+SQL> insert into ch values(default);
+
+1 row created.
+
+SQL> select * from ch;
+
+       SAL
+----------
+       201
+
+
+SQL> CREATE TABLE Persons (
+  2      ID int NOT NULL,
+  3      LastName varchar(255) NOT NULL,
+  4      FirstName varchar(255),
+  5      Age int,
+  6      CONSTRAINT PK_Person PRIMARY KEY (ID,LastName)
+  7  );
+
+Table created.
+
+SQL> desc Persons;
+ Name                                                              Null?    Type
+ ----------------------------------------------------------------- -------- --------------------------------------------
+ ID                                                                NOT NULL NUMBER(38)
+ LASTNAME                                                          NOT NULL VARCHAR2(255)
+ FIRSTNAME                                                                  VARCHAR2(255)
+ AGE                                                                        NUMBER(38)
+
+SQL> insert into Persons values(default);
+insert into Persons values(default)
+            *
+ERROR at line 1:
+ORA-00947: not enough values
+
+
+SQL>
+SQL>
+SQL>
+SQL>
+SQL> desc user_constraints;
+ Name                                                              Null?    Type
+ ----------------------------------------------------------------- -------- --------------------------------------------
+ OWNER                                                                      VARCHAR2(30)
+ CONSTRAINT_NAME                                                   NOT NULL VARCHAR2(30)
+ CONSTRAINT_TYPE                                                            VARCHAR2(1)
+ TABLE_NAME                                                        NOT NULL VARCHAR2(30)
+ SEARCH_CONDITION                                                           LONG
+ R_OWNER                                                                    VARCHAR2(30)
+ R_CONSTRAINT_NAME                                                          VARCHAR2(30)
+ DELETE_RULE                                                                VARCHAR2(9)
+ STATUS                                                                     VARCHAR2(8)
+ DEFERRABLE                                                                 VARCHAR2(14)
+ DEFERRED                                                                   VARCHAR2(9)
+ VALIDATED                                                                  VARCHAR2(13)
+ GENERATED                                                                  VARCHAR2(14)
+ BAD                                                                        VARCHAR2(3)
+ RELY                                                                       VARCHAR2(4)
+ LAST_CHANGE                                                                DATE
+ INDEX_OWNER                                                                VARCHAR2(30)
+ INDEX_NAME                                                                 VARCHAR2(30)
+ INVALID                                                                    VARCHAR2(7)
+ VIEW_RELATED                                                               VARCHAR2(14)
+
+SQL> select owner,constraint_name,constraint_type from user_constraints where table_name='EMP';
+
+OWNER                          CONSTRAINT_NAME                C
+------------------------------ ------------------------------ -
+SCOTT                          PK_EMP                         P
+SCOTT                          FK_DEPTNO                      R
+
+SQL> desc  user_cons_columns;
+ Name                                                              Null?    Type
+ ----------------------------------------------------------------- -------- --------------------------------------------
+ OWNER                                                             NOT NULL VARCHAR2(30)
+ CONSTRAINT_NAME                                                   NOT NULL VARCHAR2(30)
+ TABLE_NAME                                                        NOT NULL VARCHAR2(30)
+ COLUMN_NAME                                                                VARCHAR2(4000)
+ POSITION                                                                   NUMBER
+
+SQL> select * from user_cons_columns where table_name='EMP";
+ERROR:
+ORA-01756: quoted string not properly terminated
+
+
+SQL> select * from user_cons_columns where table_name='EMP';
+
+OWNER                          CONSTRAINT_NAME                TABLE_NAME
+------------------------------ ------------------------------ ------------------------------
+COLUMN_NAME
+------------------------------------------------------------------------------------------------------------------------
+  POSITION
+----------
+SCOTT                          PK_EMP                         EMP
+EMPNO
+         1
+
+SCOTT                          FK_DEPTNO                      EMP
+DEPTNO
+         1
+
+
+SQL>
+SQL> show user;
+USER is "SCOTT"
+SQL> conn sys sas sysdba
+SP2-0306: Invalid option.
+Usage: CONN[ECT] [{logon|/|proxy} [AS {SYSDBA|SYSOPER|SYSASM}] [edition=value]]
+where <logon> ::= <username>[/<password>][@<connect_identifier>]
+      <proxy> ::= <proxyuser>[<username>][/<password>][@<connect_identifier>]
+SQL> conn sys as sysdba;
+Enter password:
+Connected.
+SQL> show user
+USER is "SYS"
+SQL> create user tom identified by cat;
+
+User created.
+
+SQL> grant connect,resource to tom;
+
+Grant succeeded.
+
+SQL> grant select on emp to tom;
+grant select on emp to tom
+                *
+ERROR at line 1:
+ORA-00942: table or view does not exist
+
+
+SQL> conn scott
+Enter password:
+Connected.
+SQL> grant select on emp to tom;
+
+Grant succeeded.
+
+SQL> show user
+USER is "SCOTT"
+SQL> select * from emp;
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO
+---------- ---------- --------- ---------- --------- ---------- ---------- ----------
+      7369 SMITH      CLERK           7902 17-DEC-80        800                    20
+      7499 ALLEN      SALESMAN        7698 20-FEB-81       1600        300         30
+      7521 WARD       SALESMAN        7698 22-FEB-81       1250        500         30
+      7566 JONES      MANAGER         7839 02-APR-81       2975                    20
+      7654 MARTIN     SALESMAN        7698 28-SEP-81       1250       1400         30
+      7698 BLAKE      MANAGER         7839 01-MAY-81       2850                    30
+      7782 CLARK      MANAGER         7839 09-JUN-81       2450                    10
+      7788 SCOTT      ANALYST         7566 19-APR-87       3000                    20
+      7839 KING       PRESIDENT            17-NOV-81       5000                    10
+      7844 TURNER     SALESMAN        7698 08-SEP-81       1500          0         30
+      7876 ADAMS      CLERK           7788 23-MAY-87       1100                    20
+      7900 JAMES      CLERK           7698 03-DEC-81        950                    30
+      7902 FORD       ANALYST         7566 03-DEC-81       3000                    20
+      7934 MILLER     CLERK           7782 23-JAN-82       1300                    10
+
+14 rows selected.
+
+SQL> dba_users;
+SP2-0042: unknown command "dba_users" - rest of line ignored.
+SQL> show user
+USER is "SCOTT"
+SQL> grant select on emp to tom;
+
+Grant succeeded.
+
+SQL> grant connect,resource to tom;
+grant connect,resource to tom
+*
+ERROR at line 1:
+ORA-01031: insufficient privileges
+
+
+SQL> conn scott
+Enter password:
+Connected.
+SQL> grant connect,resource to tom;
+grant connect,resource to tom
+*
+ERROR at line 1:
+ORA-01031: insufficient privileges
+
+
+SQL> granrt select on emp to tom;
+SP2-0734: unknown command beginning "granrt sel..." - rest of line ignored.
+SQL> grant select on emp to tom;
+
+Grant succeeded.
+
+SQL> conn scott;
+Enter password:
+Connected.
+SQL> grant connect,resource to tom;
+grant connect,resource to tom
+*
+ERROR at line 1:
+ORA-01031: insufficient privileges
+
+
+SQL> revoke select ojn emp from tom;
+revoke select ojn emp from tom
+       *
+ERROR at line 1:
+ORA-00990: missing or invalid privilege
+
+
+SQL> revoke select on emp from tom;
+
+Revoke succeeded.
+
+SQL> CREATE TABLE Persons (
+  2      ID int NOT NULL,
+  3      LastName varchar(255) NOT NULL,
+  4      FirstName varchar(255),
+  5      Age int,
+  6      CONSTRAINT PK_Person PRIMARY KEY (ID,LastName)
+  7  );CREATE TABLE Persons (
+  8      ID int NOT NULL,
+  9      LastName varchar(255) NOT NULL,
+ 10      FirstName varchar(255),
+ 11      Age int,
+ 12      CONSTRAINT PK_Person PRIMARY KEY (ID,LastName)
+ 13
+SQL>
+SQL>
+SQL>
+SQL> show user
+USER is "SCOTT"
+SQL> create or replace view v1 as select ename,empno from emp where deptno=10;
+create or replace view v1 as select ename,empno from emp where deptno=10
+                       *
+ERROR at line 1:
+ORA-01031: insufficient privileges
+
+
+SQL> grant creare view to scott;
+grant creare view to scott
+      *
+ERROR at line 1:
+ORA-00990: missing or invalid privilege
+
+
+SQL> grant create view to scott;
+grant create view to scott
+*
+ERROR at line 1:
+ORA-01031: insufficient privileges
+
+
+SQL> conn sys as sysdba
+Enter password:
+Connected.
+SQL> grant create view to scott;
+
+Grant succeeded.
+
+SQL> show user;
+USER is "SYS"
+SQL> conn scott
+Enter password:
+Connected.
+SQL> create or replace view v1 as select ename,empno from emp where deptno=10;
+
+View created.
+
+SQL> desc v1;
+ Name                                                              Null?    Type
+ ----------------------------------------------------------------- -------- --------------------------------------------
+ ENAME                                                                      VARCHAR2(10)
+ EMPNO                                                             NOT NULL NUMBER(4)
+
+SQL> select * from v1;
+
+ENAME           EMPNO
+---------- ----------
+CLARK            7782
+KING             7839
+MILLER           7934
+
+SQL> select * from t1;
+select * from t1
+              *
+ERROR at line 1:
+ORA-00942: table or view does not exist
+
+
+SQL> select * from u1;
+
+     REGNO NAME
+---------- ---------
+         1 aa
+
+SQL> insert into view v1 values(2,'bb');
+insert into view v1 values(2,'bb')
+            *
+ERROR at line 1:
+ORA-00903: invalid table name
+
+
+SQL> create or replace view as select regno,name from u1;
+create or replace view as select regno,name from u1
+                       *
+ERROR at line 1:
+ORA-00999: invalid view name
+
+
+SQL> create or replace view v2 as select regno,name from u1;
+
+View created.
+
+SQL> insert into view v2 values(2,'bb');
+insert into view v2 values(2,'bb')
+            *
+ERROR at line 1:
+ORA-00903: invalid table name
+
+
+SQL> select * from v2;
+
+     REGNO NAME
+---------- ---------
+         1 aa
+
+SQL> drop view v1;
+
+View dropped.
+
+SQL> create or replace view v2 as select * from u1 where name='aa' with check option constraint ck;
+
+View created.
+
+SQL> update v2 set regno=2 where 1=2;
+
+0 rows updated.
+
+SQL> update v2 set regno=2;
+
+1 row updated.
+
+SQL> select * from v2;
+
+     REGNO NAME
+---------- ---------
+         2 aa
+
+SQL> select * from v2 where regno=1;
+
+no rows selected
+
+SQL> select * from v2 where regno=2;
+
+     REGNO NAME
+---------- ---------
+         2 aa
+
+SQL> insert into u1 values(3,'bb');
+
+1 row created.
+
+SQL> insert into u1 values(4,'cc');
+
+1 row created.
+
+SQL> select * from v2;
+
+     REGNO NAME
+---------- ---------
+         2 aa
+
+SQL> select * from u1;
+
+     REGNO NAME
+---------- ---------
+         2 aa
+         3 bb
+         4 cc
+
+SQL> select * from v1;
+select * from v1
+              *
+ERROR at line 1:
+ORA-00942: table or view does not exist
+
+
+SQL> select * from v2;
+
+     REGNO NAME
+---------- ---------
+         2 aa
+
+SQL> create or replace view v2 as select regno,name from u1;
+
+View created.
+
+SQL> select * from v2;
+
+     REGNO NAME
+---------- ---------
+         2 aa
+         3 bb
+         4 cc
+
+SQL> create or replace view v2 as select * from u1 where name='aa' with check option constraint ck;
+
+View created.
+
+SQL> select * from v2;
+
+     REGNO NAME
+---------- ---------
+         2 aa
+
+SQL> rollback;
+
+Rollback complete.
+
+SQL> select * from v2;
+
+     REGNO NAME
+---------- ---------
+         2 aa
+
+SQL> create or replace view v2 as select regno,name from u1;
+
+View created.
+
+SQL> select * from v2;
+
+     REGNO NAME
+---------- ---------
+         2 aa
+         3 bb
+         4 cc
+
+SQL> create or replace view v2 as select * from u1 where regno=3 with check option constraint ck;
+
+View created.
+
+SQL> select * from v2;
+
+     REGNO NAME
+---------- ---------
+         3 bb
+
+SQL> create or replace view v2 as select regno,name from u1;
+
+View created.
+
+SQL> select * from v2;
+
+     REGNO NAME
+---------- ---------
+         2 aa
+         3 bb
+         4 cc
+
+SQL> create or replace view v3 (eno,nam) as select regno,name from v2 with READ_ONLY;
+create or replace view v3 (eno,nam) as select regno,name from v2 with READ_ONLY
+                                                                      *
+ERROR at line 1:
+ORA-00905: missing keyword
+
+
+SQL> create or replace view v3 (eno,nam) as select regno,name from v2 with READ_ONLY;
+create or replace view v3 (eno,nam) as select regno,name from v2 with READ_ONLY
+                                                                      *
+ERROR at line 1:
+ORA-00905: missing keyword
+
+
+SQL> create or replace view v3 (eno,nam) as select regno,name from u1 with READ_ONLY;
+create or replace view v3 (eno,nam) as select regno,name from u1 with READ_ONLY
+                                                                      *
+ERROR at line 1:
+ORA-00905: missing keyword
+
+
+SQL>
+SQL>
+SQL> select rownum as rank,ename,sal from (select ename,sal from emp order by sal desc) where rownum<=3;
+
+      RANK ENAME             SAL
+---------- ---------- ----------
+         1 KING             5000
+         2 SCOTT            3000
+         3 FORD             3000
+
+SQL> select rownum as rank,ename,sal from (select ename,sal from emp order by sal desc) where rownum<=2;
+
+      RANK ENAME             SAL
+---------- ---------- ----------
+         1 KING             5000
+         2 SCOTT            3000
+
+SQL>

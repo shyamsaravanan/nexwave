@@ -1,0 +1,319 @@
+
+SQL*Plus: Release 11.2.0.1.0 Production on Thu Dec 26 02:40:31 2019
+
+Copyright (c) 1982, 2010, Oracle.  All rights reserved.
+
+Enter user-name: scott
+Enter password:
+
+Connected to:
+Oracle Database 11g Enterprise Edition Release 11.2.0.1.0 - 64bit Production
+With the Partitioning, OLAP, Data Mining and Real Application Testing options
+
+SQL> select * from emp;
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM
+---------- ---------- --------- ---------- --------- ---------- ----------
+    DEPTNO
+----------
+      7369 SMITH      CLERK           7902 17-DEC-80        800
+        20
+
+      7499 ALLEN      SALESMAN        7698 20-FEB-81       1600        300
+        30
+
+      7521 WARD       SALESMAN        7698 22-FEB-81       1250        500
+        30
+
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM
+---------- ---------- --------- ---------- --------- ---------- ----------
+    DEPTNO
+----------
+      7566 JONES      MANAGER         7839 02-APR-81       2975
+        20
+
+      7654 MARTIN     SALESMAN        7698 28-SEP-81       1250       1400
+        30
+
+      7698 BLAKE      MANAGER         7839 01-MAY-81       2850
+        30
+
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM
+---------- ---------- --------- ---------- --------- ---------- ----------
+    DEPTNO
+----------
+      7782 CLARK      MANAGER         7839 09-JUN-81       2450
+        10
+
+      7788 SCOTT      ANALYST         7566 19-APR-87       3000
+        20
+
+      7839 KING       PRESIDENT            17-NOV-81       5000
+        10
+
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM
+---------- ---------- --------- ---------- --------- ---------- ----------
+    DEPTNO
+----------
+      7844 TURNER     SALESMAN        7698 08-SEP-81       1500          0
+        30
+
+      7876 ADAMS      CLERK           7788 23-MAY-87       1100
+        20
+
+      7900 JAMES      CLERK           7698 03-DEC-81        950
+        30
+
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM
+---------- ---------- --------- ---------- --------- ---------- ----------
+    DEPTNO
+----------
+      7902 FORD       ANALYST         7566 03-DEC-81       3000
+        20
+
+      7934 MILLER     CLERK           7782 23-JAN-82       1300
+        10
+
+
+14 rows selected.
+
+SQL> set pagesize 120
+SQL> set linesize 120
+SQL> /
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO
+---------- ---------- --------- ---------- --------- ---------- ---------- ----------
+      7369 SMITH      CLERK           7902 17-DEC-80        800                    20
+      7499 ALLEN      SALESMAN        7698 20-FEB-81       1600        300         30
+      7521 WARD       SALESMAN        7698 22-FEB-81       1250        500         30
+      7566 JONES      MANAGER         7839 02-APR-81       2975                    20
+      7654 MARTIN     SALESMAN        7698 28-SEP-81       1250       1400         30
+      7698 BLAKE      MANAGER         7839 01-MAY-81       2850                    30
+      7782 CLARK      MANAGER         7839 09-JUN-81       2450                    10
+      7788 SCOTT      ANALYST         7566 19-APR-87       3000                    20
+      7839 KING       PRESIDENT            17-NOV-81       5000                    10
+      7844 TURNER     SALESMAN        7698 08-SEP-81       1500          0         30
+      7876 ADAMS      CLERK           7788 23-MAY-87       1100                    20
+      7900 JAMES      CLERK           7698 03-DEC-81        950                    30
+      7902 FORD       ANALYST         7566 03-DEC-81       3000                    20
+      7934 MILLER     CLERK           7782 23-JAN-82       1300                    10
+
+14 rows selected.
+
+SQL> select ename from emp where deptno=(select deptno from emp where ename='MILLER");
+ERROR:
+ORA-01756: quoted string not properly terminated
+
+
+SQL> select ename from emp where deptno=(select deptno from emp where ename='MILLER');
+
+ENAME
+----------
+CLARK
+KING
+MILLER
+
+SQL> select ename from emp where sal=max(sal);
+select ename from emp where sal=max(sal)
+                                *
+ERROR at line 1:
+ORA-00934: group function is not allowed here
+
+
+SQL> select ename from emp where sal=(select max(sal) from emp);
+
+ENAME
+----------
+KING
+
+SQL> select ename  from emp where sal>(select min(sal) from emp where deptno=30);
+
+ENAME
+----------
+ALLEN
+WARD
+JONES
+MARTIN
+BLAKE
+CLARK
+SCOTT
+KING
+TURNER
+ADAMS
+FORD
+MILLER
+
+12 rows selected.
+
+SQL> select ename,job,sal from emp where job=(select job from emp where ename='FORD') and sal=(select sal from emp where ename='FORD');
+
+ENAME      JOB              SAL
+---------- --------- ----------
+SCOTT      ANALYST         3000
+FORD       ANALYST         3000
+
+SQL> select ename,sal where sal=(select min(sal) from emp);
+select ename,sal where sal=(select min(sal) from emp)
+                 *
+ERROR at line 1:
+ORA-00923: FROM keyword not found where expected
+
+
+SQL> select ename,sal  from emp where sal=(select min(sal) from emp);
+
+ENAME             SAL
+---------- ----------
+SMITH             800
+
+SQL> select ename,deptno from emp where deptno=10 and job not in(select job from emp where deptno=30);
+
+ENAME          DEPTNO
+---------- ----------
+KING               10
+
+SQL> select ename from emp where deptno=30;
+
+ENAME
+----------
+ALLEN
+WARD
+MARTIN
+BLAKE
+TURNER
+JAMES
+
+6 rows selected.
+
+SQL> select ename from emp where deptno=30 and ename!='BLAKE';
+
+ENAME
+----------
+ALLEN
+WARD
+MARTIN
+TURNER
+JAMES
+
+SQL> select * from emp where sal>(select sal from emp where ename='JONES');
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO
+---------- ---------- --------- ---------- --------- ---------- ---------- ----------
+      7788 SCOTT      ANALYST         7566 19-APR-87       3000                    20
+      7839 KING       PRESIDENT            17-NOV-81       5000                    10
+      7902 FORD       ANALYST         7566 03-DEC-81       3000                    20
+
+SQL> select * from emp where sal=(select sal from emp where ename='SCOTT' or ename='FORD');
+select * from emp where sal=(select sal from emp where ename='SCOTT' or ename='FORD')
+                             *
+ERROR at line 1:
+ORA-01427: single-row subquery returns more than one row
+
+
+SQL> select * from emp where sal=(select sal from emp where ename='SCOTT' or ename='FORD');
+select * from emp where sal=(select sal from emp where ename='SCOTT' or ename='FORD')
+                             *
+ERROR at line 1:
+ORA-01427: single-row subquery returns more than one row
+
+
+SQL> select * from emp where sal in (select sal from emp where ename='SCOTT' or ename='FORD');
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO
+---------- ---------- --------- ---------- --------- ---------- ---------- ----------
+      7902 FORD       ANALYST         7566 03-DEC-81       3000                    20
+      7788 SCOTT      ANALYST         7566 19-APR-87       3000                    20
+
+SQL> select * from emp where job
+  2
+SQL> select * from emp where job=(select job from emp where ename='JONES')
+  2
+SQL> select * from emp where job=(select job from emp where ename='JONES');
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO
+---------- ---------- --------- ---------- --------- ---------- ---------- ----------
+      7566 JONES      MANAGER         7839 02-APR-81       2975                    20
+      7698 BLAKE      MANAGER         7839 01-MAY-81       2850                    30
+      7782 CLARK      MANAGER         7839 09-JUN-81       2450                    10
+
+SQL> select * from emp where sal>(select min(sal) from emp where deptno=30);
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO
+---------- ---------- --------- ---------- --------- ---------- ---------- ----------
+      7499 ALLEN      SALESMAN        7698 20-FEB-81       1600        300         30
+      7521 WARD       SALESMAN        7698 22-FEB-81       1250        500         30
+      7566 JONES      MANAGER         7839 02-APR-81       2975                    20
+      7654 MARTIN     SALESMAN        7698 28-SEP-81       1250       1400         30
+      7698 BLAKE      MANAGER         7839 01-MAY-81       2850                    30
+      7782 CLARK      MANAGER         7839 09-JUN-81       2450                    10
+      7788 SCOTT      ANALYST         7566 19-APR-87       3000                    20
+      7839 KING       PRESIDENT            17-NOV-81       5000                    10
+      7844 TURNER     SALESMAN        7698 08-SEP-81       1500          0         30
+      7876 ADAMS      CLERK           7788 23-MAY-87       1100                    20
+      7902 FORD       ANALYST         7566 03-DEC-81       3000                    20
+      7934 MILLER     CLERK           7782 23-JAN-82       1300                    10
+
+12 rows selected.
+
+SQL> select * from emp where location='Chicago';
+select * from emp where location='Chicago'
+                        *
+ERROR at line 1:
+ORA-00904: "LOCATION": invalid identifier
+
+
+SQL> select * from emp where sal>(select sum(sal) from emp where deptno=30);
+
+no rows selected
+
+SQL> select * from emp where sal>(select max(sal) from emp where deptno=30);
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO
+---------- ---------- --------- ---------- --------- ---------- ---------- ----------
+      7566 JONES      MANAGER         7839 02-APR-81       2975                    20
+      7788 SCOTT      ANALYST         7566 19-APR-87       3000                    20
+      7839 KING       PRESIDENT            17-NOV-81       5000                    10
+      7902 FORD       ANALYST         7566 03-DEC-81       3000                    20
+
+SQL> select * from dept;
+
+    DEPTNO DNAME          LOC
+---------- -------------- -------------
+        10 ACCOUNTING     NEW YORK
+        20 RESEARCH       DALLAS
+        30 SALES          CHICAGO
+        40 OPERATIONS     BOSTON
+
+SQL> select ename,deptno from emp,dept where loc='CHICAGO' and emp.deptno=dept.deptno;
+select ename,deptno from emp,dept where loc='CHICAGO' and emp.deptno=dept.deptno
+             *
+ERROR at line 1:
+ORA-00918: column ambiguously defined
+
+
+SQL> select emp.ename,dept.deptno from emp,dept where loc='CHICAGO' and emp.deptno=dept.deptno;
+
+ENAME          DEPTNO
+---------- ----------
+WARD               30
+TURNER             30
+ALLEN              30
+JAMES              30
+BLAKE              30
+MARTIN             30
+
+6 rows selected.
+
+SQL> select * from dept;
+
+    DEPTNO DNAME          LOC
+---------- -------------- -------------
+        10 ACCOUNTING     NEW YORK
+        20 RESEARCH       DALLAS
+        30 SALES          CHICAGO
+        40 OPERATIONS     BOSTON
+
+SQL>
