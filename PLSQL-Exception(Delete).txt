@@ -1,0 +1,11 @@
+ declare
+    e_insert_excep EXCEPTION;
+    PRAGMA EXCEPTION_INIT(e_insert_excep,-01722);
+    begin
+   delete from dept where deptno='a';
+    exception
+   when e_insert_excep then dbms_output.put_line('Delete Operation Failed');
+
+    END;
+   
+

@@ -1,0 +1,13 @@
+ declare
+   cursor c1 is select ename,sal from emp where deptno=10;
+   v_name emp.ename%type;
+  v_sal emp.sal%type;
+  begin
+  open c1;
+  loop
+  fetch c1 into v_name,v_sal;
+  exit when c1%notfound;
+  dbms_output.put_line(v_name||v_sal);
+  end loop;
+  close c1;
+ end;

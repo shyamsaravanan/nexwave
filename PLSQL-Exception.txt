@@ -1,0 +1,10 @@
+declare
+v_deptno emp.deptno%type:=&v_deptno;
+v_ename emp.ename%type;
+begin
+select ename into v_ename from emp where deptno=v_deptno;
+exception
+when too_many_rows then dbms_output.put_line('many rows');
+when no_data_found then dbms_output.put_line('no value');
+when others then dbms_output.put_line('An error has occured');
+end;
