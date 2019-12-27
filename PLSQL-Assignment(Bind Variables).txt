@@ -1,0 +1,29 @@
+SQL> variable p_name varchar2(10)
+SQL> variable p_job varchar2(9)
+SQL> variavle p_sal number
+SQL> declare
+  2   s_empno emp.empno%type:= &s_empno;
+  3  begin
+  4   select ename,job,sal into :p_name,:p_job,:p_sal from emp where empno=s_empno;
+  5  end;
+  6  /
+Enter value for s_empno: 7900
+old   2:  s_empno emp.empno%type:= &s_empno;
+new   2:  s_empno emp.empno%type:= 7900;
+
+PL/SQL procedure successfully completed.
+SQL> print p_name p_job p_sal;
+
+P_NAME
+--------------------------------
+JAMES
+
+
+P_JOB
+--------------------------------
+CLERK
+
+
+     P_SAL
+----------
+       950
