@@ -1,0 +1,9 @@
+declare
+num1 number:=&v_num1;
+num2 number:=&v_num2;
+num3 number;
+begin
+num3:=num1+num2;
+dbms_output.put_line('sum is '||num3);
+end;
+  
