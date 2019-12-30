@@ -1,0 +1,107 @@
+package sample;
+import java.util.Scanner;
+
+public class calc {
+	
+public static void main(String args[])
+{
+	    Scanner input = new Scanner(System.in);
+		System.out.println("Enter 2 numbers: ");
+		int a = input.nextInt();
+		int b = input.nextInt();
+		System.out.println("1.Addition \n2.Subtraction \n3.Multiplication\n4.Division");
+		System.out.println("\nEnter your choice: ");
+		int c= input.nextInt();
+		double result;
+		if(c==1)
+		{
+			result=a+b;
+		}
+		else if(c==2)
+		{
+			result=a-b;
+		}
+		else if(c==3)
+		{
+			result=a*b;		
+		}
+		else
+		{
+			result=a/b;
+		}
+		System.out.println("\nThe result is:" +result);
+		
+}
+
+}
+Output:
+Enter 2 numbers: 
+10
+10
+1.Addition 
+2.Subtraction 
+3.Multiplication
+4.Division
+
+Enter your choice: 
+2
+
+The result is:0.0
+
+package sample;
+
+class demo2 {
+
+	int id;
+	String name;
+}
+public class demo 
+{
+public static void main(String args[])
+{
+	demo2 s1=new demo2();
+	s1.id=101;
+	s1.name="sss";
+	System.out.println(s1.id);
+	System.out.println(s1.name);
+	
+}	
+}
+
+Output:
+101
+sss
+
+package sample;
+
+ class student1 {
+ int roll;
+ String name;
+ void insert(int r,String n)
+ {
+	 roll=r;
+	 name=n;
+ }
+ void disp()
+ {
+	 System.out.println(roll+" "+name);
+ }
+}
+ public class student
+ {
+	 public static void main(String args[])
+	 {
+		 student1 s1=new student1();
+		 student1 s2=new student1();
+		 s1.insert(123,"Shy");
+		 s2.insert(345,"am");
+		 s1.disp();
+		 s2.disp();
+	 }
+ }
+
+
+Output:
+123 Shy
+345 am
+
