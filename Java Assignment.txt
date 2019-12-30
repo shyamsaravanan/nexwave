@@ -1,0 +1,155 @@
+1)Print the pattern:
+
+package sample;
+
+public class pattern {
+
+		public static void main(String args[])
+		{
+			int i,j;
+			for(i=0;i<6;i++)
+			{
+				for(j=0;j<i;j++)
+				{
+					if(i%2!=0)
+						System.out.print("*");
+					else	
+						System.out.print("+");
+					
+				}
+				System.out.println();
+				
+			}
+		}
+}
+
+Output: 
+
+*
+++
+***
+++++
+*****
+
+2)Print the number of objects:
+
+package sample;
+
+class count
+{
+	static int c=0;
+	count()
+	{
+		c+=1;
+	}
+	void display()
+	{
+		System.out.println("Count: "+c);
+	}
+}
+
+public class Object {
+
+		public static void main(String args[])
+		{
+			count a=new count();
+			count b=new count();
+			b.display();
+			
+		}
+}
+
+Output:
+Count: 2
+
+3)Minimum of 3 numbers: 
+
+package sample;
+
+import java.util.Scanner;
+
+public class minimum {
+	public static void main(String args[])
+	{
+
+	Scanner input = new Scanner(System.in);
+	System.out.println("Enter 3 numbers: ");
+	int a = input.nextInt();
+	int b = input.nextInt();
+	int c = input.nextInt();
+	int smallest;
+	if (a <= b && a <= c) 
+	{
+	    smallest = a;
+	} 
+	else if (b <= c && b <= a) 
+	{
+	    smallest = b;
+	} else 
+	{
+	    smallest = c;
+	}
+		
+	
+	System.out.println("\nThe Minimum number is:" +smallest);
+}
+}
+
+Output:
+Enter 3 numbers: 
+6
+8
+2
+
+The Minimum number is:2
+
+4)Factorial of a number:
+
+package sample;
+
+import java.util.Scanner;
+
+public class factorial {
+	public static void main(String args[])
+	{
+	
+	int i,fact=1;  
+	  Scanner input = new Scanner(System.in);
+		System.out.println("Enter the number: ");
+		int number = input.nextInt();
+	  for(i=1;i<=number;i++)
+	  {    
+	      fact=fact*i;    
+	  }    
+	  System.out.println("Factorial of "+number+" is: "+fact);    
+	 }  
+
+}
+
+Enter the number: 
+5
+Factorial of 5 is: 120
+
+5)Display current date and time:
+
+package sample;
+
+import java.time.format.DateTimeFormatter;  
+import java.time.LocalDateTime;    
+
+public class date {
+	
+	public static void main(String args[])
+	{
+		 DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");  
+		   LocalDateTime now = LocalDateTime.now();  
+		   System.out.println(dtf.format(now));  
+		
+		
+	}
+
+}
+ 
+Output:
+30/12/2019 03:17:45
+
