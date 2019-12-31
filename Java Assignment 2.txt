@@ -1,0 +1,147 @@
+package sample;
+import java.util.Scanner;
+class acc
+{
+	int accno,ph;
+	float bal=0;
+	String name;
+void input()
+{
+	Scanner sc=new Scanner(System.in);
+	System.out.println("Enter account number: ");
+	accno=sc.nextInt();
+	System.out.println("Enter phone number: ");
+	ph=sc.nextInt();
+}
+void deposit(float x)
+{
+	bal=bal+x;
+	System.out.println("Balance is "+bal);
+}
+void withdraw(float y)
+{
+	bal=bal-y;
+	System.out.println("Balance is "+bal);
+}
+}
+public class account {
+
+	public static void main(String args[])
+	{
+		acc a=new acc();
+		a.input();
+		System.out.println("1.Deposit\n2.Withdraw");
+		Scanner input=new Scanner(System.in);
+		int ch=input.nextInt();
+		if(ch==1)
+		{
+			System.out.println("Enter amount: ");
+			float r=input.nextFloat();
+			a.deposit(r);
+			
+		}
+		else
+		{
+			System.out.println("Enter amount: ");
+			float r=input.nextFloat();
+			a.withdraw(r);
+		}
+	}
+}
+
+Output:
+Enter account number: 
+365
+Enter phone number: 
+988
+1.Deposit
+2.Withdraw
+1
+Enter amount: 
+1000
+Balance is 1000.0
+
+package sample;
+import java.util.Scanner;
+
+
+class book2 {
+	String title;
+	String author;
+	double cost;
+	int no_of_books;
+
+	public book2(String title, String author, double cost, int no_of_books) {
+		this.title = title;
+		this.author = author;
+		this.cost = cost;
+		this.no_of_books = no_of_books;
+	}
+
+	void display() {
+		System.out.println("Title: " + title + ", Author: " + author);
+		System.out.println("Cost: " + cost);
+	}
+}
+
+public class book
+{
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter data for books.");
+		book2 x[] = new book2[3];
+		
+		for (int i = 0; i < 3; i++) {
+			System.out.print("Enter title: ");
+			String title = sc.next();
+			System.out.print("Enter author: ");
+			String author = sc.next();
+			System.out.print("Enter cost: ");
+			double cost = sc.nextDouble();
+			System.out.print("Enter no of books: ");
+			int no_of_books = sc.nextInt();
+			x[i] = new book2(title, author, cost, no_of_books);
+		}
+
+		System.out.print("\nEnter title to search: ");
+		String title = sc.next();
+		System.out.print("Enter no of books required: ");
+		int no_of_books = sc.nextInt();
+
+		boolean found = false;
+		for (int i = 0; i < 3; i++) {
+			if (title.equals(x[i].title) && (no_of_books <= x[i].no_of_books)) {
+				found = true;
+				x[i].display();
+				System.out.println("Books are sufficient.");
+				System.out.println("Total cost of books: " + (x[i].cost * no_of_books));
+			}
+		}
+
+		if (found == false) {
+			System.out.println("No books found.");
+		}
+	}
+}
+
+Output:
+Enter data for books.
+Enter title: saa
+Enter author: sas
+Enter cost: 123
+Enter no of books: 12
+Enter title: erer
+Enter author: ass
+Enter cost: 125
+Enter no of books: 34
+Enter title: wert
+Enter author: tyj
+Enter cost: 128
+Enter no of books: 44
+
+Enter title to search: wert
+Enter no of books required: 2
+Title: wert, Author: tyj
+Cost: 128.0
+Books are sufficient.
+Total cost of books: 256.0

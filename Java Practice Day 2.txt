@@ -1,0 +1,117 @@
+package sample;
+
+class Programmer {
+
+	float sal=40000;
+}
+ public class Employee extends Programmer
+{
+	int bonus=10000;
+	public static void main(String args[])
+	{
+		Employee p= new Employee();
+		System.out.println("Programmer salary is:"+p.sal);
+		System.out.println("Bonus:"+p.bonus);
+	}
+}
+
+Output:
+Programmer salary is:40000.0
+Bonus:10000
+
+package sample;
+
+class animal
+{
+	void eat()
+	{
+		System.out.println("Eating");
+	}
+	
+}
+class dog extends animal
+{
+	void bark()
+	{
+		System.out.println("Barking");
+	}
+}
+class baby extends dog
+{
+	void weep()
+	{
+		System.out.println("Weeping");
+	}
+}
+public class test {
+
+	public static void main(String args[])
+	{
+		baby d=new baby();
+		d.weep();
+		d.bark();
+		d.eat();				
+	}
+}
+
+Output:
+Weeping
+Barking
+Eating
+
+package sample;
+
+class adder
+{
+	static int add(int a,int b)
+	{
+		return a+b;
+	}
+	static int add(int a,int b,int c)
+	{
+		return a+b+c;
+	}
+}
+public class test
+{
+	public static void main(String args[])
+	{
+		System.out.println(adder.add(1,2));
+		System.out.println(adder.add(2, 4,5));
+	}
+}
+
+Output:
+3
+11
+
+package sample;
+
+class vehicle
+{
+	void run()
+	{
+		System.out.println("Vehicle is running");
+	}
+}
+public class test extends vehicle
+{
+	void run()
+	{
+		System.out.println("Bike is running safely");
+	}
+public static void main(String args[])
+{
+	test obj=new test();
+	obj.run();
+}
+}
+
+Output:
+Bike is running safely
+
+
+
+
+
+
