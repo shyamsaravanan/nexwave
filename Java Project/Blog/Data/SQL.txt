@@ -1,0 +1,22 @@
+SELECT * FROM tab;
+
+DROP TABLE blog_users;
+
+CREATE TABLE blog_users (
+    user_name VARCHAR2(20),
+    user_pass VARCHAR2(20)
+);
+
+SELECT * FROM blog_users;
+
+DROP TABLE blog_articles;
+
+CREATE TABLE blog_articles (
+    image VARCHAR2(300),
+    title VARCHAR2(300),
+    summary VARCHAR2(300)
+);
+
+SELECT * FROM blog_articles;
+
+COMMIT;
