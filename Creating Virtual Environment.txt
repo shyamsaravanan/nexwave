@@ -1,0 +1,51 @@
+C:\Users\lab365>cd C:\Python Training
+
+C:\Python Training>dir
+ Volume in drive C has no label.
+ Volume Serial Number is F68D-283B
+
+ Directory of C:\Python Training
+
+01/07/2020  09:26 AM    <DIR>          .
+01/07/2020  09:26 AM    <DIR>          ..
+01/07/2020  09:36 AM    <DIR>          Anaconda
+01/06/2020  04:48 PM    <DIR>          bin
+01/06/2020  09:49 AM    <DIR>          lib
+01/06/2020  09:50 AM    <DIR>          log
+01/06/2020  09:50 AM    <DIR>          releases
+               0 File(s)              0 bytes
+               7 Dir(s)  772,677,947,392 bytes free
+
+C:\Python Training>pyhton -m venv myvenv1
+'pyhton' is not recognized as an internal or external command,
+operable program or batch file.
+
+C:\Python Training>python -m venv myvenv1
+
+C:\Python Training>dir
+ Volume in drive C has no label.
+ Volume Serial Number is F68D-283B
+
+ Directory of C:\Python Training
+
+01/07/2020  09:42 AM    <DIR>          .
+01/07/2020  09:42 AM    <DIR>          ..
+01/07/2020  09:36 AM    <DIR>          Anaconda
+01/06/2020  04:48 PM    <DIR>          bin
+01/06/2020  09:49 AM    <DIR>          lib
+01/06/2020  09:50 AM    <DIR>          log
+01/07/2020  09:42 AM    <DIR>          myvenv1
+01/06/2020  09:50 AM    <DIR>          releases
+               0 File(s)              0 bytes
+               8 Dir(s)  772,661,145,600 bytes free
+
+C:\Python Training> cd myvenv1
+
+C:\Python Training\myvenv1>cd scripts
+
+C:\Python Training\myvenv1\Scripts>activate
+
+(myvenv1) C:\Python Training\myvenv1\Scripts>deactivate
+C:\Python Training\myvenv1\Scripts>activate
+
+(myvenv1) C:\Python Training\myvenv1\Scripts>
