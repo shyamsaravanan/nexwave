@@ -1,0 +1,6 @@
+10
+python
+10
+python
+20
+java
